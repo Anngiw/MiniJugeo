@@ -30,6 +30,9 @@ func _physics_process(delta):
 		morir()
 		return
 	girar(delta)
+	if position.y > 800:
+		morir()
+		return
 
 
 func mover(delta):

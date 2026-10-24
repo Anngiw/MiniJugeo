@@ -8,22 +8,24 @@ extends "res://bloques.gd"
 # "?" Bloques de la ZONA FANTASMA (Plataformas flotantes translúcidas)
 
 const MAPA = [
-	"                                                                                                                                                                                                                                                                                                                                ",
-	"                                                                                                                                                                                                                                                                                                                                ",
-	"                                                                           .                                                                                                                                                                                    .                                                               ",
-	"                                                                        ###                                                                                                                                                                                  ###                                                              ",
-	"                                                                                                                                   .                                                                                                                                                                              ",
-	"                     .                        .             o                                                             ###                                     .                                                 o                                                                             ",
-	"                    ###                      ###           ###           ?   ?   ?   ?   ?                                                               ###                                            ###                                                ",
-	"             .                ^                     ^                   ??? ??? ??? ??? ???            ^               o             .                         ^                   ^                         ###                 ^               ^               o            ",
-	"            ###              ###                   ###                 ????? ????? ?????            ###             ###           ###                       ###                 ###                       #####               ###             ###             ###           ",
-	"##################################^^###################################???######## ?##?#################^^^##################################^^###################################^^^^#################################################################",
-	"######################################################################################################"
+	"                                                                                                                                                               ",
+	"                                                                                                                                                               ",
+	"                                                                                                                                                               ",
+	"                                                                                                                  ######???#### ??###??#                       ",
+	"                                                ..                                                            ##                                               #",
+	"                                              ####                                                      ####                            ####                   #",
+	"                                                                                                  ##                                                           #",
+	"                    .       ....    ...  ....     .      .      .                              ####             ##                                          M  #",                   
+	"                                        ####                         ...####               o                      o                        ..           ###    #",
+	"                  ^^      ^       ^                           ^^     #######     ^             ^^    ^                ?    ?       ^   ##     ^                # ",
+	"##########################################??##########???##############################???#######################################??#############################"
 ]
 
 var moneda_escena = preload("res://moneda.tscn")
 var llave_escena = preload("res://llave.tscn")
 var pinchos_escena = preload("res://pinchos.tscn")
+var meta_escena = preload("res://meta.tscn")
+var zona_fantasma_escena = preload("res://zf.tscn")
 
 @onready var jugador = $Cubo
 var intentos = 1
@@ -64,18 +66,25 @@ func construir():
 					escena = llave_escena
 				"^":
 					escena = pinchos_escena
+				"M": 
+					escena = meta_escena 
+				"?": 
+					escena = zona_fantasma_escena 
 			if escena:
 				var nodo = escena.instantiate()
 				nodo.position = Vector2(col + 0.5, fila + 0.5) * CELDA
+				
+				if MAPA[fila][col] == "^" or MAPA[fila][col] == "?":
+					nodo.add_to_group("enemigos")
+					
 				$Mapa.add_child(nodo)
-
 func _on_recogido(valor, da_poder):
 	puntaje += valor
-	$HUD/Puntaje.text = "Monedas: %d" % puntaje
+	$HUD/Control/Puntaje.text = "Monedas: %d" % puntaje
 	if da_poder:
 		activar_poder()
 	if get_tree().get_nodes_in_group("monedas").size() == 1:
-		$HUD/Mensaje.text = "¡Todas las monedas!"
+		$HUD/Control/Mensaje.text = "¡Todas las monedas!"
 
 func activar_poder():
 	modo_poder = true
@@ -101,4 +110,4 @@ func _on_enemigo_toco(_enemigo):
 	intentos += 1
 	jugador.morir()
 	# Actualicen el HUD con los intentos.
-	$HUD/Mensaje.text = "Intentos: %d" % intentos
+	$HUD/Control/Mensaje.text = "Intentos: %d" % intentos

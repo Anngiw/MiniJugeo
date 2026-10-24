@@ -1,3 +1,10 @@
 res://mundo.tscn
 res://jugador.gd
 res://jugador.tscn
+res://bloques.gd
+res://mundo.gd
+res://meta.tscn
+res://meta.gd
+res://pinchos.tscn
+res://zf.tscn
+res://zf.gd

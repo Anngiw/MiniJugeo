@@ -101,7 +101,7 @@ stream = ExtResource("a1")
 shape = SubResource("Forma")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1535099362]
-limit_left = -10000001
+limit_left = 0
 limit_top = 0
 limit_bottom = 720
 position_smoothing_speed = 10.0

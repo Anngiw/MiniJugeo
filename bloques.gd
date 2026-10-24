@@ -33,7 +33,7 @@ func crear_bloque(col_ini: int, col_fin: int, fila: int, _color: Color):
 	cuerpo.add_child(forma)
 	
 	# Creamos cada tile individual de 64x64 perfectamente ajustado
-	var textura_ladrillo = load("res://assets/la.png")
+	var textura_ladrillo = load("res://assets/piso.png")
 	for i in range(cantidad_bloques):
 		var dibujo = TextureRect.new()
 		dibujo.texture = textura_ladrillo

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cf7ymb20ylghe"]
+
+[ext_resource type="Texture2D" uid="uid://c3a4r7umvkyoh" path="res://assets/zf.png" id="1_1t7c0"]
+[ext_resource type="Script" uid="uid://cc38g034px7ll" path="res://zf.gd" id="1_5u3r1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xepy2"]
+size = Vector2(64, 64)
+
+[node name="Zf" type="Area2D" unique_id=1609343369]
+script = ExtResource("1_5u3r1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1051917935]
+shape = SubResource("RectangleShape2D_xepy2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=750839138]
+modulate = Color(0.9007046, 0.90070456, 0.90070456, 1)
+position = Vector2(-1.5000019, -1.0000029)
+scale = Vector2(0.19811322, 0.24806203)
+texture = ExtResource("1_1t7c0")

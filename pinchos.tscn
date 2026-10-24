@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://s6v5brj6fh6f"]
 
-[ext_resource type="Texture2D" uid="uid://bn8vltbcrjdpn" path="res://assets/pinchos.png" id="1"]
 [ext_resource type="Script" uid="uid://dy87pq055fp6m" path="res://pinchos.gd" id="1_i3k25"]
+[ext_resource type="Texture2D" uid="uid://c23jorsqsrnkg" path="res://assets/pin2.png" id="2_i3k25"]
 
 [sub_resource type="RectangleShape2D" id="Forma"]
 size = Vector2(30, 36)
@@ -10,7 +10,8 @@ size = Vector2(30, 36)
 script = ExtResource("1_i3k25")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1716972306]
-texture = ExtResource("1")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_i3k25")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=124479067]
 shape = SubResource("Forma")

@@ -27,7 +27,14 @@ position = Vector2(160, 540)
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1485305648]
 
-[node name="Puntaje" type="Label" parent="HUD" unique_id=1231019834]
+[node name="Control" type="Control" parent="HUD" unique_id=393665364]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Puntaje" type="Label" parent="HUD/Control" unique_id=1231019834]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 8.0
 offset_right = 900.0
@@ -35,9 +42,10 @@ offset_bottom = 48.0
 theme_override_font_sizes/font_size = 28
 text = "Puntaje: 0"
 
-[node name="Mensaje" type="Label" parent="HUD" unique_id=2024768172]
+[node name="Mensaje" type="Label" parent="HUD/Control" unique_id=2024768172]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 52.0
 offset_right = 900.0
-offset_bottom = 100.0
+offset_bottom = 102.0
 theme_override_font_sizes/font_size = 36

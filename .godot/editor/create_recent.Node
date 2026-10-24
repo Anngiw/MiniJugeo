@@ -1,6 +1,8 @@
-Parallax2D
+Area2D
 Sprite2D
 CollisionShape2D
+Control
+Parallax2D
 StaticBody2D
 TextureRect
 CanvasLayer
