@@ -1,5 +1,5 @@
 78098b89c88a74ebe8c20117b8754620
-::res://::1792822759
+::res://::1792823626
 bloques.gd::GDScript::8296113345858637418::1792817154::0::1::::<>Node2D<><>0<>0<><>::
 icon.svg::CompressedTexture2D::7835244078578561300::1792525685::1792525837::1::::<><><>0<>0<>f232b0459640313407a6ae1b0f065d79<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 jugador.gd::GDScript::6863016085191859256::1792786147::0::1::::<>CharacterBody2D<><>0<>0<><>::
@@ -13,6 +13,7 @@ mundo.gd::GDScript::8163609840157413270::1792814153::0::1::::<>Node2D<><>0<>0<><
 mundo.tscn::PackedScene::2298133798567151563::1792820429::0::1::::<><><>0<>0<><>::uid://dokrpxk4mrxco::::res://mundo.gd<>uid://c44myya6m6wuf::::res://jugador.tscn<>uid://dw1w4a1am6xio::::res://assets/fondo2.png
 pinchos.gd::GDScript::8913889375350233710::1792782039::0::1::::<>Area2D<><>0<>0<><>::
 pinchos.tscn::PackedScene::1328723605761254711::1792782039::0::1::::<><><>0<>0<><>::uid://bn8vltbcrjdpn::::res://assets/pinchos.png<>uid://dy87pq055fp6m::::res://pinchos.gd
+README.md::TextFile::-1::1792823274::0::1::::<><><>0<>0<><>::
 ::res://assets/::1792819455
 cubo_hoja.png::CompressedTexture2D::8490344588505913971::1792525685::1792525837::1::::<><><>0<>0<>f0a9ee657bc093775d657713d8e8ce0a<>res://.godot/imported/cubo_hoja.png-3e729bd703a037cb079670c447cb34ca.ctex::
 explosion.wav::AudioStreamWAV::5875296442658122900::1792525685::1792525837::1::::<><><>0<>0<>06f511f90db6c284025a5c97b70261c9<>res://.godot/imported/explosion.wav-de00f2d0ef23a85998326fdf0ffd33ab.sample::

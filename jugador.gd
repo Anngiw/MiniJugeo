@@ -18,7 +18,8 @@ var intentos = 1
 
 func _ready():
 	inicio = position
-	musica.play()   # una sola vez: el archivo ya viene en bucle
+	musica.play()    # una sola vez: el archivo ya viene en bucle
+	actualizar_hud()
 
 
 func _physics_process(delta):
@@ -66,5 +67,12 @@ func morir():
 	position = inicio
 	sprite.play("normal")
 	intentos += 1
-	musica.play()   # en Geometry Dash la música sí vuelve a empezar con cada intento
+	actualizar_hud()
+	musica.play()    # en Geometry Dash la música sí vuelve a empezar con cada intento
 	muriendo = false
+
+
+func actualizar_hud():
+	var hud_mensaje = get_node_or_null("../HUD/Mensaje")
+	if hud_mensaje:
+		hud_mensaje.text = "Intento %d" % intentos
