@@ -20,7 +20,6 @@ const MAPA = [
 	"                  ^^      ^       ^                           ^^     #######     ^             ^^    ^                ?    ?       ^   ##     ^                # ",
 	"##########################################??##########???##############################???#######################################??#############################"
 ]
-
 var moneda_escena = preload("res://moneda.tscn")
 var llave_escena = preload("res://llave.tscn")
 var pinchos_escena = preload("res://pinchos.tscn")
@@ -31,16 +30,29 @@ var zona_fantasma_escena = preload("res://zf.tscn")
 var intentos = 1
 var puntaje = 0
 var modo_poder = false
+var meta_nodo = null
 
 
 func _ready():
 	construir()
+	
+	# Buscar la meta automáticamente en el mapa una vez construido
+	for child in $Mapa.get_children():
+		if child.scene_file_path and "meta" in child.scene_file_path.to_lower():
+			meta_nodo = child
+			break
+
 	# Conexión de monedas
 	for item in get_tree().get_nodes_in_group("monedas"):
 		item.recogido.connect(_on_recogido)
+		
 	# Conexión de enemigos/pinchos
 	for enemigo in get_tree().get_nodes_in_group("enemigos"):
 		enemigo.toco_al_jugador.connect(_on_enemigo_toco)
+	
+	# Inicializar los intentos en el HUD al arrancar
+	if $HUD.has_method("actualizar_intentos"):
+		$HUD.actualizar_intentos(intentos)
 	
 	# Verificamos o creamos el TimerPoder por código de forma segura
 	if not has_node("TimerPoder"):
@@ -78,36 +90,54 @@ func construir():
 					nodo.add_to_group("enemigos")
 					
 				$Mapa.add_child(nodo)
+
+
+func _process(_delta: float) -> void:
+	# Cálculo de la barra de progreso 
+	if jugador and meta_nodo:
+		var distancia_total = meta_nodo.global_position.x
+		if distancia_total > 0:
+			var distancia_recorrida = jugador.global_position.x
+			var porcentaje = clamp((distancia_recorrida / distancia_total) * 100.0, 0.0, 100.0)
+			
+			if $HUD.has_method("actualizar_progreso"):
+				$HUD.actualizar_progreso(porcentaje)
+
 func _on_recogido(valor, da_poder):
 	puntaje += valor
-	$HUD/Control/Puntaje.text = "Monedas: %d" % puntaje
+	
+	# Actualizamos para usar el nuevo Hub 
+	if $HUD.has_method("actualizar_puntaje"):
+		$HUD.actualizar_puntaje(puntaje)
+	
 	if da_poder:
 		activar_poder()
+		
 	if get_tree().get_nodes_in_group("monedas").size() == 1:
-		$HUD/Control/Mensaje.text = "¡Todas las monedas!"
+		print("¡Todas las monedas!")
+
 
 func activar_poder():
 	modo_poder = true
 	print("poder: sí")
-	# Reemplazamos el await por el start() del Timer del poder para manejar llaves seguidas
 	$TimerPoder.start()
 
 
-# Nueva función que recibe la señal timeout del Timer
 func _on_timer_poder_timeout():
 	modo_poder = false
 	print("poder: no")
 
+
 # Función que se ejecuta al tocar un pincho
 func _on_enemigo_toco(_enemigo):
-	# Si el cubo está muriendo, no hagan nada.
 	if jugador.muriendo:
 		return
-	# Con poder el pincho no hace daño, no pasa nada.
 	if modo_poder:
 		return
-	# Sin poder: un intento más y el cubo muere (vuelve al inicio con morir()).
+		
 	intentos += 1
 	jugador.morir()
-	# Actualicen el HUD con los intentos.
-	$HUD/Control/Mensaje.text = "Intentos: %d" % intentos
+	
+	# Actualizamos los intentos usando el método limpio de nuestro nuevo HUD
+	if $HUD.has_method("actualizar_intentos"):
+		$HUD.actualizar_intentos(intentos)

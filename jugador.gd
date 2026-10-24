@@ -1,5 +1,5 @@
 extends CharacterBody2D
-# Solución del Taller 3 (solo profesor).
+# Solución del Taller 3 .
 
 @export var speed = 300.0       # px/s hacia la derecha
 @export var gravedad = 2400.0   # px/s²
@@ -45,7 +45,7 @@ func mover(delta):
 	move_and_slide()
 
 
-# Nivel 1: gira en el aire (lo decide is_on_floor, no la tecla). Nivel 2: aterriza derecho.
+# Nivel 1: gira en el aire (lo decide is_on_floor, no la tecla). Nivel 2: aterriza derecho. Mariana
 func girar(delta):
 	if not is_on_floor():
 		sprite.rotation += deg_to_rad(giro) * delta
@@ -53,7 +53,7 @@ func girar(delta):
 		sprite.rotation = snappedf(sprite.rotation, PI / 2)
 
 
-# Nivel 3
+# Nivel 3 Jaider
 func progreso() -> int:
 	return int(clampf((position.x - inicio.x) / (meta_x - inicio.x), 0.0, 1.0) * 100)
 

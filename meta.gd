@@ -32,13 +32,11 @@ func _process(delta):
 		# Después de 1 segundo de animación, mostramos el mensaje final y esperamos la barra espaciadora
 		if tiempo_transcurrido > 1.0 and not is_processing_input():
 			cubo_atrapado.visible = false
+		var hud_mensaje = get_tree().root.get_node_or_null("Mundo/HUD/Mensaje")
+		if hud_mensaje:
+			hud_mensaje.text = "¡Nivel Completado!\nPresiona [Espacio] para continuar"
+			hud_mensaje.visible = true
 			
-			var hud_mensaje = get_tree().root.get_node_or_null("Mundo/HUD/Control/Mensaje")
-			if hud_mensaje:
-				hud_mensaje.text = "¡Nivel Completado!\nPresiona [Espacio] para continuar"
-				hud_mensaje.visible = true
-			
-			set_process_input(true)
 		return
 
 	# Efecto de pulso normal del vórtice mientras espera al jugador

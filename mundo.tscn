@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dokrpxk4mrxco" path="res://mundo.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://c44myya6m6wuf" path="res://jugador.tscn" id="2"]
 [ext_resource type="Texture2D" uid="uid://dw1w4a1am6xio" path="res://assets/fondo2.png" id="2_otwa2"]
+[ext_resource type="PackedScene" uid="uid://bdcn3qqqmo8cl" path="res://HUD.tscn" id="4_otwa2"]
 
 [node name="Mundo" type="Node2D" unique_id=756065766]
 z_index = -10
@@ -25,27 +26,4 @@ stretch_mode = 6
 z_index = 1
 position = Vector2(160, 540)
 
-[node name="HUD" type="CanvasLayer" parent="." unique_id=1485305648]
-
-[node name="Control" type="Control" parent="HUD" unique_id=393665364]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Puntaje" type="Label" parent="HUD/Control" unique_id=1231019834]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 8.0
-offset_right = 900.0
-offset_bottom = 48.0
-theme_override_font_sizes/font_size = 28
-text = "Puntaje: 0"
-
-[node name="Mensaje" type="Label" parent="HUD/Control" unique_id=2024768172]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 52.0
-offset_right = 900.0
-offset_bottom = 102.0
-theme_override_font_sizes/font_size = 36
+[node name="HUD" parent="." unique_id=1342327891 instance=ExtResource("4_otwa2")]

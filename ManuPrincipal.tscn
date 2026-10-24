@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://dyishf81vu220"]
+
+[ext_resource type="Script" uid="uid://ioawworoor0h" path="res://manu_principal.gd" id="1_u4qme"]
+[ext_resource type="Texture2D" uid="uid://sqymkbic0b1d" path="res://assets/fondo.png" id="2_t7ck5"]
+
+[sub_resource type="SystemFont" id="SystemFont_0w74b"]
+msdf_size = 51
+
+[node name="ManuPrincipal" type="CanvasLayer" unique_id=566275456]
+script = ExtResource("1_u4qme")
+
+[node name="PantallaCompleta" type="Control" parent="." unique_id=484763945]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="PantallaCompleta" unique_id=388387583]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_t7ck5")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="PantallaCompleta" unique_id=1391096789]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PantallaCompleta/MarginContainer" unique_id=1768265410]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 15
+
+[node name="Label2" type="Label" parent="PantallaCompleta/MarginContainer/VBoxContainer" unique_id=413676366]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8627451, 0.8745098, 0.05882353, 0.9529412)
+theme_override_colors/font_shadow_color = Color(0.37254903, 0.58431375, 0.7764706, 0.73333335)
+theme_override_colors/font_outline_color = Color(0, 0.6901961, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_0w74b")
+theme_override_font_sizes/font_size = 56
+text = "GEOMETRY DASH"
+horizontal_alignment = 1
+
+[node name="BtnJugar" type="Button" parent="PantallaCompleta/MarginContainer/VBoxContainer" unique_id=1581376724]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.9502141, 0.86305237, 0.71847266, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0.5803922, 1)
+theme_override_font_sizes/font_size = 25
+text = "Jugar"
+
+[node name="Label" type="Label" parent="PantallaCompleta/MarginContainer/VBoxContainer" unique_id=309633931]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9502141, 0.86305237, 0.71847266, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0.5803922, 1)
+theme_override_font_sizes/font_size = 25
+text = "Elegir nivel: "
+horizontal_alignment = 1
+autowrap_trim_flags = 64
+
+[node name="BtnNivel1" type="Button" parent="PantallaCompleta/MarginContainer/VBoxContainer" unique_id=1788652674]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.9502141, 0.86305237, 0.71847266, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0.5803922, 1)
+theme_override_font_sizes/font_size = 25
+text = "Nivel 1 - Despegue"
+
+[node name="BtnNivel2" type="Button" parent="PantallaCompleta/MarginContainer/VBoxContainer" unique_id=129255703]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.9502141, 0.86305237, 0.71847266, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0.5803922, 1)
+theme_override_font_sizes/font_size = 25
+text = "Nivel 2 - Cuevas de Neón"
+
+[node name="BtnNivel3" type="Button" parent="PantallaCompleta/MarginContainer/VBoxContainer" unique_id=332102612]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.9502141, 0.86305237, 0.71847266, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0.5803922, 1)
+theme_override_font_sizes/font_size = 25
+text = "Nivel 3 - Zona Fantasma"
+
+[node name="BtnSalir" type="Button" parent="PantallaCompleta/MarginContainer/VBoxContainer" unique_id=1337809204]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.9502141, 0.86305237, 0.71847266, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0.5803922, 1)
+theme_override_font_sizes/font_size = 25
+text = "Salir
+"
