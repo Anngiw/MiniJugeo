@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://d3wmbkqknd48o"]
+
+[ext_resource type="Texture2D" uid="uid://4meeiri70v8b" path="res://assets/llave.png" id="1"]
+[ext_resource type="Script" uid="uid://cihmro3id30qk" path="res://llave.gd" id="1_cr5s1"]
+
+[sub_resource type="CircleShape2D" id="Forma"]
+radius = 16.0
+
+[node name="Llave" type="Area2D" unique_id=1182172902 groups=["monedas"]]
+script = ExtResource("1_cr5s1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1732137265]
+texture = ExtResource("1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=630032801]
+shape = SubResource("Forma")

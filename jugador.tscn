@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://c44myya6m6wuf"]
+
+[ext_resource type="AudioStream" uid="uid://cq7qc067qi0oo" path="res://assets/musica.wav" id="a0"]
+[ext_resource type="AudioStream" uid="uid://cpybjk1bqv2gu" path="res://assets/explosion.wav" id="a1"]
+[ext_resource type="Script" uid="uid://c41q4wj5hhufw" path="res://jugador.gd" id="s"]
+[ext_resource type="Texture2D" uid="uid://ds71y8the6qr0" path="res://assets/cubo_hoja.png" id="t0"]
+
+[sub_resource type="AtlasTexture" id="A0_1"]
+atlas = ExtResource("t0")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="A0_2"]
+atlas = ExtResource("t0")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="A0_3"]
+atlas = ExtResource("t0")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="A0_4"]
+atlas = ExtResource("t0")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="A0_5"]
+atlas = ExtResource("t0")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="A0_6"]
+atlas = ExtResource("t0")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="A0_7"]
+atlas = ExtResource("t0")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="A0_8"]
+atlas = ExtResource("t0")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="A0_0"]
+atlas = ExtResource("t0")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_A0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("A0_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("A0_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("A0_3")
+}, {
+"duration": 1.0,
+"texture": SubResource("A0_4")
+}, {
+"duration": 1.0,
+"texture": SubResource("A0_5")
+}, {
+"duration": 1.0,
+"texture": SubResource("A0_6")
+}, {
+"duration": 1.0,
+"texture": SubResource("A0_7")
+}, {
+"duration": 1.0,
+"texture": SubResource("A0_8")
+}],
+"loop": 0,
+"name": &"explotar",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("A0_0")
+}],
+"loop": 0,
+"name": &"normal",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="Forma"]
+size = Vector2(56, 56)
+
+[node name="Cubo" type="CharacterBody2D" unique_id=147920222 groups=["jugador"]]
+script = ExtResource("s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=884040507]
+sprite_frames = SubResource("SpriteFrames_A0")
+animation = &"normal"
+
+[node name="Musica" type="AudioStreamPlayer" parent="." unique_id=321927258]
+stream = ExtResource("a0")
+
+[node name="Explosion" type="AudioStreamPlayer" parent="." unique_id=1356515772]
+stream = ExtResource("a1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=472938369]
+shape = SubResource("Forma")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1535099362]
+limit_left = -10000001
+limit_top = 0
+limit_bottom = 720
+position_smoothing_speed = 10.0
